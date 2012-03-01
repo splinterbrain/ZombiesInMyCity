@@ -23,7 +23,6 @@ public final class R {
         public static final int add_base_form_submit=0x7f060005;
         public static final int add_base_form_title=0x7f060002;
         public static final int add_base_root=0x7f060000;
-        public static final int button1=0x7f06000b;
         public static final int intro_button_next=0x7f06000a;
         public static final int intro_button_skip=0x7f060009;
         public static final int intro_panels=0x7f060007;
@@ -39,6 +38,7 @@ public final class R {
     public static final class string {
         public static final int add_base_form_submit=0x7f040005;
         public static final int add_base_form_title=0x7f040006;
+        public static final int add_base_image_content_description=0x7f040008;
         public static final int add_base_name_default=0x7f040007;
         public static final int add_base_name_hint=0x7f040004;
         public static final int app_name=0x7f040001;
