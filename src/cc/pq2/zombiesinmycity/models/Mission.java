@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 public class Mission implements Serializable{
 	private static final long serialVersionUID = -1726998046032457320L;
-	private ArrayList<Double[]> points;
+	private final ArrayList<Double[]> points = new ArrayList<Double[]>();;
 	private MissionType missionType;
+	private long completionTime;
+	private long completionDistance;
 	
 	public Mission() {
 		super();
-		points = new ArrayList<Double[]>();
 	}
 
 	/**
@@ -49,5 +50,33 @@ public class Mission implements Serializable{
 	 */
 	public void setMissionType(MissionType missionType) {
 		this.missionType = missionType;
+	}
+
+	/**
+	 * @return the completionTime
+	 */
+	public long getCompletionTime() {
+		return completionTime;
+	}
+
+	/**
+	 * @param completionTime the completionTime to set
+	 */
+	public void setCompletionTime(long completionTime) {
+		this.completionTime = completionTime;
+	}
+
+	/**
+	 * @return the completionDistance
+	 */
+	public long getCompletionDistance() {
+		return completionDistance;
+	}
+
+	/**
+	 * @param completionDistance the completionDistance to set
+	 */
+	public void setCompletionDistance(long completionDistance) {
+		this.completionDistance = completionDistance;
 	}
 }

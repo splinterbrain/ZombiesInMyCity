@@ -6,7 +6,7 @@ import android.app.Application;
 import cc.pq2.zombiesinmycity.models.Base;
 
 public class ZombiesInMyCityApplication extends Application {
-	private ArrayList<Base> bases;
+	private final ArrayList<Base> bases = new ArrayList<Base>();
 
 	/* (non-Javadoc)
 	 * @see android.app.Application#onCreate()
@@ -14,7 +14,6 @@ public class ZombiesInMyCityApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		bases = new ArrayList<Base>();
 	}
 	
 	public Base[] getBases(){

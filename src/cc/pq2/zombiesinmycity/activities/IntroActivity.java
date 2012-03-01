@@ -1,7 +1,6 @@
 package cc.pq2.zombiesinmycity.activities;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
