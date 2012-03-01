@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, ZombiesInMyCityActivity!</string>
+    <string name="app_name">ZombiesInMyCity</string>
+    <string name="skip_intro">Skip Intro</string>
+    <string name="intro_next">Next</string>
+    <string name="add_base_name_hint">What\'s this base called?</string>
+    <string name="add_base_form_submit">Let\'s go!</string>
+    <string name="add_base_form_title">Looks like we found you. What do you call this refuge?</string>
+    <string-array name="anonymous_names">
+        <item >Hotshot</item>
+        <item >Rookie</item>
+    </string-array>
+        <string name="add_base_name_default">Home</string>
+
+</resources>
