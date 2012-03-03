@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, ZombiesInMyCityActivity!</string>
-    <string name="app_name">ZombiesInMyCity</string>
+    <string name="app_name">Zombies In My City!</string>
     <string name="skip_intro">Skip Intro</string>
     <string name="intro_next">Next</string>
     <string name="add_base_name_hint">What\'s this base called?</string>

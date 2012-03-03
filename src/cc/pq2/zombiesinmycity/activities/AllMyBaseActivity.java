@@ -19,11 +19,17 @@ public class AllMyBaseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.viewbase);
+		setContentView(R.layout.allmybase);
 
 		bases = ((ZombiesInMyCityApplication) getApplicationContext()).getBases();
 		for(Base base : bases){
 			Log.v(TAG, base.getName());
+		}
+		if(bases.length == 1){
+			//Show base and mission select
+			
+		}else{
+			//Show list of bases
 		}
 	}
 
