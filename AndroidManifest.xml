@@ -35,6 +35,7 @@
         <uses-library
             android:name="com.google.android.maps"
             android:required="true" />
+        <activity android:name=".activities.PickMissionActivity"></activity>
     </application>
 
 </manifest>

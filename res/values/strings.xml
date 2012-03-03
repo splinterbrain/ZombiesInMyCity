@@ -14,5 +14,6 @@
     </string-array>
         <string name="add_base_name_default">Home</string>
         <string name="add_base_image_content_description">Add base location map</string>
+        <string name="amb_newmission_button">New Mission</string>
 
 </resources>

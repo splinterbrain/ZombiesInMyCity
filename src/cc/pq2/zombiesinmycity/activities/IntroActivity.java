@@ -15,7 +15,7 @@ import cc.pq2.zombiesinmycity.R;
 public class IntroActivity extends Activity {
 
 	private final String panels[] = { "Hello? Can you hear me? This is Survivor Base Zero.",
-			"Good to see you're still alive and human." };
+			"Good to see you're still alive and human.", "There aren't too many of us left, but luckily for us the satellites and cell towers are still running... for now.", "Make sure you have your GPS turned on, we can use it to guide you and warn you when zombies get close."};
 	private int currentPanel = 0;
 
 	/*
