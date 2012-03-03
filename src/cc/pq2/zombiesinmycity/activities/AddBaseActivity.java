@@ -43,6 +43,8 @@ public class AddBaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addbase);
 
+		findViewById(R.id.add_base_form_layout).setVisibility(View.INVISIBLE);
+		
 		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		LocationListener locationListener = new LocationListener() {
 
@@ -113,10 +115,10 @@ public class AddBaseActivity extends Activity {
 
 		loadingDialog = ProgressDialog.show(AddBaseActivity.this, "", "Finding location...", true);
 
-		Location mockLocation = new Location(LocationManager.GPS_PROVIDER);
-		mockLocation.setLatitude(45.52782450);
-		mockLocation.setLongitude(-122.68527580);
-		locationListener.onLocationChanged(mockLocation);
+//		Location mockLocation = new Location(LocationManager.GPS_PROVIDER);
+//		mockLocation.setLatitude(45.52782450);
+//		mockLocation.setLongitude(-122.68527580);
+//		locationListener.onLocationChanged(mockLocation);
 		
 		Button goButton = (Button) findViewById(R.id.add_base_form_submit);
 		goButton.setOnClickListener(new OnClickListener(){

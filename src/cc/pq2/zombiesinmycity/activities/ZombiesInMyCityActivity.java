@@ -36,6 +36,8 @@ public class ZombiesInMyCityActivity extends Activity {
         	startActivity(intent);
         }else{
         	Toast.makeText(app, "Good to have you still with us. Let's get you out on a mission.", 3).show();
+        	Intent intent = new Intent(this, AllMyBaseActivity.class);
+        	startActivity(intent);
         }
 	}
     

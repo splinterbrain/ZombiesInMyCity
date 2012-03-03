@@ -1,8 +1,17 @@
 package cc.pq2.zombiesinmycity;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
 import java.util.ArrayList;
 
 import android.app.Application;
+import android.content.Context;
 import cc.pq2.zombiesinmycity.models.Base;
 
 public class ZombiesInMyCityApplication extends Application {
@@ -14,6 +23,34 @@ public class ZombiesInMyCityApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		File file = getApplicationContext().getFileStreamPath("bases.dat");
+		if(file.exists()){
+			try {
+				FileInputStream fis = openFileInput("bases.dat");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Object savedBases[] = (Object[])ois.readObject();
+				for(Object base : savedBases){
+//					this.addBase((Base)base);
+					this.bases.add((Base)base);
+				}
+				ois.close();
+				fis.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (StreamCorruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassCastException e){
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public Base[] getBases(){
@@ -25,6 +62,21 @@ public class ZombiesInMyCityApplication extends Application {
 	}
 	
 	public void addBase(Base base){
-		bases.add(base);		
+		bases.add(base);
+		
+		//Resave bases
+		try {
+			FileOutputStream fos = openFileOutput("bases.dat", Context.MODE_PRIVATE);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(bases.toArray());
+			oos.close();
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

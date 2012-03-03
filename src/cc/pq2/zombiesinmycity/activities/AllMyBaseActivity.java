@@ -1,15 +1,15 @@
 package cc.pq2.zombiesinmycity.activities;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import cc.pq2.zombiesinmycity.R;
+import cc.pq2.zombiesinmycity.ZombiesInMyCityApplication;
 import cc.pq2.zombiesinmycity.models.Base;
 
 public class AllMyBaseActivity extends Activity {
-	private ArrayList<Base> bases;
+	private static final String TAG = "ALLMYBASEACTIVITY";
+	private Base bases[];
 	
 	
 	/* (non-Javadoc)
@@ -20,10 +20,10 @@ public class AllMyBaseActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.viewbase);
-		if(bases == null){
-			bases = new ArrayList<Base>();
-			Intent intent = new Intent(this, AddBaseActivity.class);
-			startActivity(intent);
+
+		bases = ((ZombiesInMyCityApplication) getApplicationContext()).getBases();
+		for(Base base : bases){
+			Log.v(TAG, base.getName());
 		}
 	}
 
