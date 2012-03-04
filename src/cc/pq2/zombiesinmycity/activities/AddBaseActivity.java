@@ -29,8 +29,9 @@ public class AddBaseActivity extends Activity {
 	private static String TAG = "ADD_BASE_ACTIVITY";
 	private ProgressDialog loadingDialog;
 	
-	private double latitude;
-	private double longitude;
+	private double latitude = 0;
+	private double longitude = 0;
+	boolean locationReturned = false;
 	
 	/*
 	 * (non-Javadoc)
@@ -50,6 +51,8 @@ public class AddBaseActivity extends Activity {
 
 			@Override
 			public void onLocationChanged(Location location) {
+				if(locationReturned) return; //Only do this once
+				locationReturned = true;
 				// TODO Auto-generated method stub
 				latitude = location.getLatitude();
 				longitude = location.getLongitude();
