@@ -13,7 +13,7 @@ public class PickMissionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Base base = ((ZombiesInMyCityApplication) getApplicationContext()).getBase(getIntent().getExtras().getInt("baseIndex"));
-		Place foodPlaces[] = PlacesApi.searchForPlaces(base.getLatitude(), base.getLongitude(), "groceries");
+		Place[] foodPlaces = PlacesApi.searchForPlaces(base.getLatitude(), base.getLongitude(), "groceries");
 		
 	}
 	
