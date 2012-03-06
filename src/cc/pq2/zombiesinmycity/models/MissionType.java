@@ -9,11 +9,13 @@ public class MissionType implements Serializable {
 	
 	private static final long serialVersionUID = -5806709537122682056L;
 	private final String name;
+	private final String placeKeyword;
 	
 	
-	public MissionType(String name) {
+	public MissionType(String name, String placeKeyword) {
 		super();
 		this.name = name;
+		this.placeKeyword = placeKeyword;
 	}
 
 
@@ -22,6 +24,11 @@ public class MissionType implements Serializable {
 	 */
 	public String getName() {
 		return name;
+	}
+
+
+	public String getPlaceKeyword() {
+		return placeKeyword;
 	}
 
 }

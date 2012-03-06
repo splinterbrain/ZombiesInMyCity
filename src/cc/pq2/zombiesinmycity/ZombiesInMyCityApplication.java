@@ -26,8 +26,8 @@ public class ZombiesInMyCityApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		
-		missionTypes.add(new MissionType("Retrieve food"));
-		missionTypes.add(new MissionType("Stock weapons"));
+		missionTypes.add(new MissionType("Retrieve food", "groceries"));
+		missionTypes.add(new MissionType("Stock weapons", "hardware"));
 		
 		File file = getApplicationContext().getFileStreamPath("bases.dat");
 		if(file.exists()){

@@ -45,6 +45,7 @@ public class AllMyBaseActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(AllMyBaseActivity.this, PickMissionActivity.class);
+				intent.putExtra("baseIndex", 0);
 				startActivity(intent);
 			}
 			

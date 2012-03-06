@@ -5,6 +5,13 @@ public class Place {
 	private double longitude;
 
 	
+	public Place(double latitude, double longitude, String name) {
+		super();
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.name = name;
+	}
+	
 	public double getLatitude() {
 		return latitude;
 	}
