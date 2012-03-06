@@ -13,9 +13,11 @@ import java.util.ArrayList;
 import android.app.Application;
 import android.content.Context;
 import cc.pq2.zombiesinmycity.models.Base;
+import cc.pq2.zombiesinmycity.models.MissionType;
 
 public class ZombiesInMyCityApplication extends Application {
 	private final ArrayList<Base> bases = new ArrayList<Base>();
+	private final ArrayList<MissionType> missionTypes = new ArrayList<MissionType>(); 
 
 	/* (non-Javadoc)
 	 * @see android.app.Application#onCreate()
@@ -23,6 +25,10 @@ public class ZombiesInMyCityApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		
+		missionTypes.add(new MissionType("Retrieve food"));
+		missionTypes.add(new MissionType("Stock weapons"));
+		
 		File file = getApplicationContext().getFileStreamPath("bases.dat");
 		if(file.exists()){
 			try {
