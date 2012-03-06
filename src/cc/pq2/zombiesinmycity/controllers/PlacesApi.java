@@ -40,7 +40,10 @@ public class PlacesApi {
 				places.add(new Place(location.get("lat").getAsDouble(), location.get("lng").getAsDouble(), result.get("name").getAsString()));
 			}
 //			Place place = new Place(longitude, longitude, respBody);
-			return (Place[])places.toArray();
+//			places.trimToSize();
+			Place[] ret = new Place[places.size()]; 
+			places.toArray(ret);
+			return ret;
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
