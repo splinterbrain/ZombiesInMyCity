@@ -32,6 +32,7 @@ public final class R {
         public static final int intro_panels=0x7f06000e;
         public static final int intro_panels_scrollview=0x7f06000d;
         public static final int linearLayout1=0x7f06000f;
+        public static final int pickmission_missionlist=0x7f060012;
         public static final int relativeLayout1=0x7f060006;
         public static final int relativeLayout2=0x7f060009;
         public static final int textView1=0x7f060008;

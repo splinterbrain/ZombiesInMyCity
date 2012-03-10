@@ -1,6 +1,9 @@
 package cc.pq2.zombiesinmycity.models;
 
-public class Place {
+import java.io.Serializable;
+
+public class Place implements Serializable {
+	private static final long serialVersionUID = 6790106636076558136L;
 	private double latitude;
 	private double longitude;
 

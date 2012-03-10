@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import cc.pq2.zombiesinmycity.R;
 import cc.pq2.zombiesinmycity.ZombiesInMyCityApplication;
 import cc.pq2.zombiesinmycity.models.Base;
+import cc.pq2.zombiesinmycity.models.Place;
 
 public class AddBaseActivity extends Activity {
 
@@ -118,10 +119,10 @@ public class AddBaseActivity extends Activity {
 
 		loadingDialog = ProgressDialog.show(AddBaseActivity.this, "", "Finding location...", true);
 
-//		Location mockLocation = new Location(LocationManager.GPS_PROVIDER);
-//		mockLocation.setLatitude(45.52782450);
-//		mockLocation.setLongitude(-122.68527580);
-//		locationListener.onLocationChanged(mockLocation);
+		Location mockLocation = new Location(LocationManager.GPS_PROVIDER);
+		mockLocation.setLatitude(45.52782450);
+		mockLocation.setLongitude(-122.68527580);
+		locationListener.onLocationChanged(mockLocation);
 		
 		Button goButton = (Button) findViewById(R.id.add_base_form_submit);
 		goButton.setOnClickListener(new OnClickListener(){
@@ -133,8 +134,7 @@ public class AddBaseActivity extends Activity {
 				
 				base.setName(((EditText)findViewById(R.id.add_base_form_name)).getText().toString());
 				
-				base.setLatitude(latitude);
-				base.setLongitude(longitude);
+				base.setPlace(new Place(latitude, longitude, "Base - " + base.getName()));
 				ZombiesInMyCityApplication app = (ZombiesInMyCityApplication) getApplicationContext();
 				app.addBase(base);
 				//Finish activity
