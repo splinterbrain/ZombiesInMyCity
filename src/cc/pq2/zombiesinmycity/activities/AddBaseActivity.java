@@ -47,12 +47,15 @@ public class AddBaseActivity extends Activity {
 
 		findViewById(R.id.add_base_form_layout).setVisibility(View.INVISIBLE);
 		
-		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		LocationListener locationListener = new LocationListener() {
 
 			@Override
 			public void onLocationChanged(Location location) {
-				if(locationReturned) return; //Only do this once
+				if(locationReturned){
+					locationManager.removeUpdates(this);
+					return; //Only do this once
+				}
 				locationReturned = true;
 				// TODO Auto-generated method stub
 				latitude = location.getLatitude();
