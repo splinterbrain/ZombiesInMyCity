@@ -11,6 +11,7 @@ import android.widget.TextView;
 import cc.pq2.zombiesinmycity.R;
 import cc.pq2.zombiesinmycity.ZombiesInMyCityApplication;
 import cc.pq2.zombiesinmycity.models.Base;
+import cc.pq2.zombiesinmycity.models.Mission;
 
 public class AllMyBaseActivity extends Activity {
 	private static final String TAG = "ALLMYBASEACTIVITY";
@@ -52,6 +53,19 @@ public class AllMyBaseActivity extends Activity {
 		});
 		
 		
+	}
+
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
+		Mission currentMission = ((ZombiesInMyCityApplication) getApplicationContext()).getCurrentMission();
+		if(currentMission != null){
+			Intent intent = new Intent(AllMyBaseActivity.this, RunMissionActivity.class);
+			startActivity(intent);
+		}
 	}
 
 }

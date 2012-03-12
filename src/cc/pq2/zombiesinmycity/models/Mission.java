@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Mission implements Serializable{
 	private static final long serialVersionUID = -1726998046032457320L;
-	private final ArrayList<Double[]> points = new ArrayList<Double[]>();;
+	private final ArrayList<MissionSegment> segments = new ArrayList<MissionSegment>();
 	private MissionType missionType;
 	private long completionTime;
 	private long completionDistance;
@@ -15,24 +15,24 @@ public class Mission implements Serializable{
 	}
 
 	/**
-	 * @return point at index
+	 * @return segment at index
 	 */
-	public Double[] getPoint(int index) {
-		return points.get(index);
+	public MissionSegment getSegment(int index) {
+		return segments.get(index);
 	}
 
 	/**
-	 * @param add point
+	 * @param add segment
 	 */
-	public void addPoint(Double[] point) {
-		this.points.add(point);
+	public void addSegment(MissionSegment segment) {
+		this.segments.add(segment);
 	}
 	
 	/**
-	 * @param remove point
+	 * @param remove segment
 	 */
-	public void removePoint(int index) {
-		this.points.remove(index);
+	public void removeSegment(int index) {
+		this.segments.remove(index);
 	}
 	
 	

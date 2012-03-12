@@ -13,12 +13,14 @@ import java.util.ArrayList;
 import android.app.Application;
 import android.content.Context;
 import cc.pq2.zombiesinmycity.models.Base;
+import cc.pq2.zombiesinmycity.models.Mission;
 import cc.pq2.zombiesinmycity.models.MissionType;
 
 public class ZombiesInMyCityApplication extends Application {
 	private final ArrayList<Base> bases = new ArrayList<Base>();
 	private final ArrayList<MissionType> missionTypes = new ArrayList<MissionType>(); 
-
+	private Mission currentMission;
+	
 	/* (non-Javadoc)
 	 * @see android.app.Application#onCreate()
 	 */
@@ -84,5 +86,13 @@ public class ZombiesInMyCityApplication extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public Mission getCurrentMission() {
+		return currentMission;
+	}
+
+	public void setCurrentMission(Mission currentMission) {
+		this.currentMission = currentMission;
 	}
 }

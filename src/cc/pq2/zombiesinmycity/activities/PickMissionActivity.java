@@ -12,16 +12,23 @@ import cc.pq2.zombiesinmycity.R;
 import cc.pq2.zombiesinmycity.ZombiesInMyCityApplication;
 import cc.pq2.zombiesinmycity.controllers.PlacesApi;
 import cc.pq2.zombiesinmycity.models.Base;
+import cc.pq2.zombiesinmycity.models.Mission;
+import cc.pq2.zombiesinmycity.models.MissionSegment;
 import cc.pq2.zombiesinmycity.models.Place;
 
 public class PickMissionActivity extends Activity implements OnClickListener {
 	private static final String TAG = "PICKMISSIONACTIVITY";
+	private static Base base;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pickmission);
-		Base base = ((ZombiesInMyCityApplication) getApplicationContext()).getBase(getIntent().getExtras().getInt("baseIndex"));
+		base = ((ZombiesInMyCityApplication) getApplicationContext()).getBase(getIntent().getExtras().getInt("baseIndex"));
 		Place[] foodPlaces = PlacesApi.searchForPlaces(base.getPlace(), "groceries");
+		if(foodPlaces == null){
+			Toast.makeText(getApplicationContext(), "Sorry, there was a problem retrieving nearby mission targets", 2).show();
+			finish();
+		}
 		LinearLayout missionList = (LinearLayout) findViewById(R.id.pickmission_missionlist);
 		for(Place place : foodPlaces){
 			Log.v(TAG, place.getName());
@@ -38,6 +45,13 @@ public class PickMissionActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		Place place = (Place)v.getTag();
 		Toast.makeText(getApplicationContext(), "Starting mission to " + place.getName(), 3).show();
+		MissionSegment segment = new MissionSegment();
+		segment.setStartPlace(base.getPlace());
+		segment.setFinishPlace(place);
+		Mission mission = new Mission();
+		mission.addSegment(segment);
+		((ZombiesInMyCityApplication) getApplicationContext()).setCurrentMission(mission);
+		finish();
 	}
 	
 }

@@ -35,6 +35,7 @@ public final class R {
         public static final int pickmission_missionlist=0x7f060012;
         public static final int relativeLayout1=0x7f060006;
         public static final int relativeLayout2=0x7f060009;
+        public static final int runmission_mapview=0x7f060013;
         public static final int textView1=0x7f060008;
     }
     public static final class layout {
@@ -43,6 +44,7 @@ public final class R {
         public static final int intro=0x7f030002;
         public static final int main=0x7f030003;
         public static final int pickmission=0x7f030004;
+        public static final int runmission=0x7f030005;
     }
     public static final class string {
         public static final int add_base_form_submit=0x7f040005;
