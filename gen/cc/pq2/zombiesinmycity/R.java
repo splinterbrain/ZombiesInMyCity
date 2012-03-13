@@ -27,6 +27,7 @@ public final class R {
         public static final int amb_newmission_button=0x7f06000c;
         public static final int amb_player_level=0x7f06000b;
         public static final int amb_player_name=0x7f06000a;
+        public static final int frameLayout1=0x7f060015;
         public static final int intro_button_next=0x7f060011;
         public static final int intro_button_skip=0x7f060010;
         public static final int intro_panels=0x7f06000e;
@@ -35,7 +36,10 @@ public final class R {
         public static final int pickmission_missionlist=0x7f060012;
         public static final int relativeLayout1=0x7f060006;
         public static final int relativeLayout2=0x7f060009;
-        public static final int runmission_mapview=0x7f060013;
+        public static final int runmission_elapseddistance=0x7f060014;
+        public static final int runmission_elapsedtime=0x7f060013;
+        public static final int runmission_mapview=0x7f060016;
+        public static final int runmission_start=0x7f060017;
         public static final int textView1=0x7f060008;
     }
     public static final class layout {

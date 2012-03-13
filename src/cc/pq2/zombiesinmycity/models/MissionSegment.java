@@ -1,10 +1,10 @@
 package cc.pq2.zombiesinmycity.models;
 
 import java.io.Serializable;
-
-import cc.pq2.zombiesinmycity.controllers.PlacesApi;
+import java.util.Date;
 
 import android.text.format.Time;
+import cc.pq2.zombiesinmycity.controllers.PlacesApi;
 
 public class MissionSegment implements Serializable {
 	private static final long serialVersionUID = 3728091265275077608L;
@@ -15,7 +15,7 @@ public class MissionSegment implements Serializable {
 	//In ms
 	private long elapsedTime = 0;
 	//In meters
-	private long elapsedDistance = 0;
+	private double elapsedDistance = 0;
 	
 	private long lastLocationTime;
 	private Place lastLocationPlace;
@@ -41,15 +41,18 @@ public class MissionSegment implements Serializable {
 
 	public void start(Place location){
 		this.lastLocationPlace = location;
-		this.lastLocationTime = (new Time()).toMillis(false);
+		this.lastLocationTime = (new Date()).getTime();
 	}
 	
 	
 	public void updateProgress(Place location){
 		if(complete) return;
-		long now = (new Time()).toMillis(false);
+		if(lastLocationPlace == null) return;
+		
+		long now = (new Date()).getTime();
 		elapsedTime += now-lastLocationTime;
-		elapsedDistance += PlacesApi.getDistance(lastLocationPlace, location);
+		double distance = PlacesApi.getDistance(lastLocationPlace, location);
+		elapsedDistance += distance;
 		this.lastLocationPlace = location;
 		this.lastLocationTime = now;
 	}
@@ -62,7 +65,7 @@ public class MissionSegment implements Serializable {
 	public long getElapsedTime() {
 		return elapsedTime;
 	}
-	public long getElapsedDistance() {
+	public double getElapsedDistance() {
 		return elapsedDistance;
 	}
 	public long getLastLocationTime() {

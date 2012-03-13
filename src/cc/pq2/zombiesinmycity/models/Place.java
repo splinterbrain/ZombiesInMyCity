@@ -2,6 +2,10 @@ package cc.pq2.zombiesinmycity.models;
 
 import java.io.Serializable;
 
+import android.location.Location;
+
+import com.google.android.maps.GeoPoint;
+
 public class Place implements Serializable {
 	private static final long serialVersionUID = 6790106636076558136L;
 	private double latitude;
@@ -12,6 +16,13 @@ public class Place implements Serializable {
 		super();
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.name = name;
+	}
+	
+	public Place(Location location, String name){
+		super();
+		this.latitude = location.getLatitude();
+		this.longitude = location.getLongitude();
 		this.name = name;
 	}
 	
@@ -34,6 +45,11 @@ public class Place implements Serializable {
 		this.name = name;
 	}
 	private String name;
+
+
+	public GeoPoint toGeoPoint() {
+		return new GeoPoint((int) (latitude*1e6), (int) (longitude*1e6));
+	}
 	
 	//Ignore, etc go here later
 }
