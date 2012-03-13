@@ -8,6 +8,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import cc.pq2.zombiesinmycity.R;
 import cc.pq2.zombiesinmycity.ZombiesInMyCityApplication;
 import cc.pq2.zombiesinmycity.models.Mission;
@@ -26,6 +27,7 @@ public class RunMissionActivity extends MapActivity implements LocationListener 
 	private PlayerOverlay playerOverlay;
 	private MissionOverlay missionOverlay;
 	private Location lastLocation;
+	private LocationManager locationManager;
 	
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -49,7 +51,7 @@ public class RunMissionActivity extends MapActivity implements LocationListener 
 		mapview.getOverlays().add(missionOverlay);
 		
 		//Register for location 
-		 final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		 locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
 		
@@ -78,6 +80,14 @@ public class RunMissionActivity extends MapActivity implements LocationListener 
 		
 		//Update mission
 		currentMission.getSegment(0).updateProgress(new Place(location, ""));
+		
+		if(currentMission.getSegment(0).isComplete()){
+			Toast.makeText(getApplicationContext(), "Congratulations!", 3).show();
+			locationManager.removeUpdates(this);
+			//TODO Add to player stats
+			//TODO Set up return mission ready to go
+			finish();
+		}
 		
 		//Update texts
 		((TextView)findViewById(R.id.runmission_elapseddistance)).setText(currentMission.getSegment(0).getElapsedDistance() + " km");
@@ -123,7 +133,7 @@ public class RunMissionActivity extends MapActivity implements LocationListener 
 		public PlayerOverlay(Drawable defaultMarker, GeoPoint point, String title) {
 			super(boundCenterBottom(defaultMarker));
 			// TODO Auto-generated constructor stub
-			player = new OverlayItem(point, title, "");
+			player = new OverlayItem(point, title, "");			
 			populate();
 		}
 

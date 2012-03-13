@@ -30,6 +30,7 @@
             android:layout_height="fill_parent"
             android:apiKey="0cca3rHoU-kAXsM83_lxqpPrpYhKu3-97E8VICA"
             android:clickable="true" >
+
         </com.google.android.maps.MapView>
 
         <Button

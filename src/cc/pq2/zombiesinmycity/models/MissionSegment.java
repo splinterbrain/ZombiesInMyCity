@@ -3,7 +3,6 @@ package cc.pq2.zombiesinmycity.models;
 import java.io.Serializable;
 import java.util.Date;
 
-import android.text.format.Time;
 import cc.pq2.zombiesinmycity.controllers.PlacesApi;
 
 public class MissionSegment implements Serializable {
@@ -51,10 +50,12 @@ public class MissionSegment implements Serializable {
 		
 		long now = (new Date()).getTime();
 		elapsedTime += now-lastLocationTime;
-		double distance = PlacesApi.getDistance(lastLocationPlace, location);
+		double distance = PlacesApi.getDistance(lastLocationPlace, location);		
 		elapsedDistance += distance;
 		this.lastLocationPlace = location;
 		this.lastLocationTime = now;
+		double distanceToFinish = PlacesApi.getDistance(lastLocationPlace, finishPlace);
+		if(distanceToFinish < 0.01) complete = true;
 	}
 	
 	public void finish(Place location){
