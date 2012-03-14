@@ -62,7 +62,7 @@ public class AllMyBaseActivity extends Activity {
 		super.onResume();
 		
 		Mission currentMission = ((ZombiesInMyCityApplication) getApplicationContext()).getCurrentMission();
-		if(currentMission != null){
+		if(currentMission != null && !currentMission.getSegment(0).isComplete()){
 			Intent intent = new Intent(AllMyBaseActivity.this, RunMissionActivity.class);
 			startActivity(intent);
 		}
