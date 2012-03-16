@@ -32,7 +32,7 @@ public class ZombiesInMyCityApplication extends Application {
 		missionTypes.add(new MissionType("Stock weapons", "hardware"));
 		
 		File file = getApplicationContext().getFileStreamPath("bases.dat");
-		if(file.exists()){
+		if(false && file.exists()){
 			try {
 				FileInputStream fis = openFileInput("bases.dat");
 				ObjectInputStream ois = new ObjectInputStream(fis);

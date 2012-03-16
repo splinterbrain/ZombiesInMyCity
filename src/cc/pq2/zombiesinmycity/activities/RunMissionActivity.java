@@ -78,6 +78,9 @@ public class RunMissionActivity extends MapActivity implements LocationListener 
 			findViewById(R.id.runmission_start).setEnabled(true);
 		}else{
 		
+			//Haven't started yet
+			if(currentMission.getSegment(0).getLastLocationPlace() == null) return;
+			
 		//Update mission
 		currentMission.getSegment(0).updateProgress(new Place(location, ""));
 		
